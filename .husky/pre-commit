@@ -1,2 +1,3 @@
 #!/bin/sh
+echo "Running pre-commit hooks"
 npx playwright test --forbid-only
