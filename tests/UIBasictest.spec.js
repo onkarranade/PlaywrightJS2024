@@ -5,13 +5,13 @@ test('First playwright test', async ({browser,page})=>
 {
 
 await page.goto("https://google.com");
-await page.got
+
 
 
 });
 
 
-test('title confirmation test', async ({page})=>
+test.only('title confirmation test', async ({page})=>
 
  {
 
