@@ -1,16 +1,10 @@
-const { page,test, expect} =require('@playwright/test');
+const { test, expect } = require('@playwright/test');  // Correct CommonJS require
 
-test('title confirmation test', async ({page})=>
-
- {
-
-  await  page.goto("https://google.com");
-  await  expect(page).toHaveTitle('Google');
-
+test('title confirmation test', async ({ page }) => {
+  await page.goto('https://google.com');
+  await expect(page).toHaveTitle('Google');
 });
 
-test("random test", async ({page})=>{
-
-
-  await page.goto("https://google.com");
-})
+test('random test', async ({ page }) => {
+  await page.goto('https://google.com');
+});
