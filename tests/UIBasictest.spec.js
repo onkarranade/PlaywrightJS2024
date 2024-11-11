@@ -11,7 +11,7 @@ await page.goto("https://google.com");
 });
 
 
-test.only('title confirmation test', async ({page})=>
+test('title confirmation test', async ({page})=>
 
  {
 
