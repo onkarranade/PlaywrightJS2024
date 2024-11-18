@@ -28,3 +28,23 @@ test("Bootstrap dropdown", async ({ page }) => {
             }).click();
     }
 })
+
+
+test.only('tab handling', async ({page})=> {
+
+page.goto('https://www.lambdatest.com/selenium-playground/window-popup-modal-demo');
+page.pause();
+
+const [newWindow] =await Promise.all([
+page.waitForEvent('popup'),
+page.locator("a[title='Follow @Lambdatesting on Twitter']").click()
+]);
+await newWindow.waitForLoadState('domcontentloaded');
+console.log(await newWindow.title());
+console.log(await newWindow.url());
+})
+
+test('window handling',async ({page})=>{
+    page.goto('https://www.lambdatest.com/selenium-playground/window-popup-modal-demo');
+
+})

@@ -72,4 +72,15 @@ test('child window selection', async ({browser})=>{
 
 })
 
+test('product name find', async ({page})=> {
+
+   await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
+    await page.locator('#username').fill('');
+    await page.locator('#username').fill('rahulshettyacademy');
+    await page.locator('#password').fill('learning');
+    await page.locator('#signInBtn').click();
+    await page.waitForLoadState('networkidle');
+
+})
+
 

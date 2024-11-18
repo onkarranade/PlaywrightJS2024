@@ -1,5 +1,6 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+const { on } = require('events');
 
 /**
  * Read environment variables from file.
@@ -22,6 +23,7 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  
   expect: {
     timeout:5000
   },
@@ -29,6 +31,8 @@ module.exports = defineConfig({
   use: {
   
     trace: 'on-first-retry',
+    screenshot : 'on',
+    headless :false
   },
 
   /* Configure projects for major browsers */
