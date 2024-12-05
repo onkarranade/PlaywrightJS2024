@@ -30,7 +30,7 @@ test("Bootstrap dropdown", async ({ page }) => {
 })
 
 
-test.only('tab handling', async ({page})=> {
+test('tab handling', async ({page})=> {
 
 page.goto('https://www.lambdatest.com/selenium-playground/window-popup-modal-demo');
 page.pause();
