@@ -102,7 +102,7 @@ if(await products.nth(i).locator('b').textContent()===productName)
 })
 
 
-test('Create an Order' , async ({page})=> {
+test.only('Create an Order' , async ({page})=> {
     const productName='ZARA COAT 3';
     const email='qaonkar7@mailinator.com';
     await page.goto('https://rahulshettyacademy.com/client/');
@@ -150,7 +150,23 @@ test('Create an Order' , async ({page})=> {
      await expect(page.locator('.hero-primary')).toHaveText(' Thankyou for the order. ');
      let orderID= await page.locator('.em-spacer-1 .ng-star-inserted').textContent();
      console.log(orderID);
-     
+     await page.locator("button[routerlink*='/dashboard/myorders']").click();
+     await page.locator('tbody').waitFor();
+
+     const rows=await page.locator('tbody tr');
+     for(let j=0; j< await rows.count();j++)
+     {
+        const rowOrderId=await rows.nth(j).locator('th').textContent();
+        if(orderID.includes(rowOrderId))
+        {
+            await rows.nth(j).locator('button').first().click();
+            break;
+        }
+     }
+await page.locator('.col-text').waitFor();
+     const orderIdDetails=await page.locator('.col-text').textContent();
+     expect(orderID.includes(orderIdDetails)).toBeTruthy();
+     page.pause();
 })
 
 
