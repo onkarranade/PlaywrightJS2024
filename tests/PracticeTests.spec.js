@@ -102,7 +102,7 @@ if(await products.nth(i).locator('b').textContent()===productName)
 })
 
 
-test.only('Create an Order' , async ({page})=> {
+test('Create an Order' , async ({page})=> {
     const productName='ZARA COAT 3';
     const email='qaonkar7@mailinator.com';
     await page.goto('https://rahulshettyacademy.com/client/');
@@ -113,7 +113,7 @@ test.only('Create an Order' , async ({page})=> {
  
      const products=page.locator('.card-body');
      const count=await products.count();
- 
+    
      for(let i=0;i<count;i++)
      {
 
