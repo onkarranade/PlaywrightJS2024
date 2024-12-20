@@ -35,3 +35,22 @@ test('popup validations', async ({page})=>
     await expect(page.locator('#displayed-text')).toBeHidden();
 
 })
+
+test.only('frames test', async ({page})=> {
+    await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
+    const framespage=await page.frameLocator('#courses-iframe');
+   await  framespage.locator("li a[href*='lifetime-access']:visible").click();
+   const textcheck=await framespage.locator('.text h2').textContent();
+   console.log(textcheck.split(" ")[1]);
+
+})
+
+test('basic test', 
+    {tag : '@smoke'}, async({page})=>{
+
+    }
+)
+
+test('second basic test @smoke', async ({page})=> {
+
+})
