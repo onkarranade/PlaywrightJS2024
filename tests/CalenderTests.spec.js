@@ -36,7 +36,7 @@ test('popup validations', async ({page})=>
 
 })
 
-test.only('frames test', async ({page})=> {
+test('frames test', async ({page})=> {
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
     const framespage=await page.frameLocator('#courses-iframe');
    await  framespage.locator("li a[href*='lifetime-access']:visible").click();
