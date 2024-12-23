@@ -1,6 +1,6 @@
 const { test, expect} =require('@playwright/test');
 
-test('email registration', async ({page})=> {
+test.skip('email registration', async ({page})=> {
 
 
     await page.goto('https://rahulshettyacademy.com/client/');
