@@ -8,6 +8,7 @@ const { OrderReviewPage } = require('../pageobjects/OrderReviewPage');
 const { OrderHistoryPage }=require('../pageobjects/OrderHistoryPage');
 const jsonFilePath = path.join(__dirname, '../utils/TestData.json');
 const dataset=JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'));
+const data=JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'));
 const useremail='qaonkar7@mailinator.com';
 const password='Qa@123456';
 const productName='ADIDAS ORIGINAL';
@@ -40,11 +41,12 @@ test.skip('complete order test', async ({page})=> {
 
 })
 
-test.skip('sample test', async ({page})=> {
+test('sample test', async ({page})=> {
 
+    const userdata=data[0];
     await page.goto('https://rahulshettyacademy.com/client/');
-     await page.locator('#userEmail').fill(data.useremail);
-     await page.locator('#userPassword').fill(data.password);
+     await page.locator('#userEmail').fill(userdata.useremail);
+     await page.locator('#userPassword').fill(userdata.password);
      await page.locator('#login').click();
      await page.waitForLoadState('networkidle');
 })
