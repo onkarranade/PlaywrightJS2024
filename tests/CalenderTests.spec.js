@@ -45,12 +45,5 @@ test('frames test', async ({page})=> {
 
 })
 
-test('basic test', 
-    {tag : '@smoke'}, async({page})=>{
 
-    }
-)
 
-test('second basic test @smoke', async ({page})=> {
-
-})

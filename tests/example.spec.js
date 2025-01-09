@@ -3,14 +3,14 @@ const { test, expect } = require('@playwright/test');
 
 
 test.describe.configure({mode : 'parallel'})
-test('has title', async ({ page }) => {
+test('@title has title',async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
 });
 
-test('get started link', async ({ page }) => {
+test('title: get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Click the get started link.
@@ -21,7 +21,7 @@ test('get started link', async ({ page }) => {
 });
 
 
-test('test tags', {tag : '@title'},  async({page})=> {
+test('title: test tags',async({page})=> {
 
 await page.goto('https://google.com');
 await expect(page).toHaveTitle('Google');
