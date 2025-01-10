@@ -5,3 +5,6 @@ node_modules/
 /playwright/.cache/
 screenshot.png
 /screenshots/
+# Ignore Allure results and reports
+allure-results/
+allure-report/

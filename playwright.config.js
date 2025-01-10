@@ -13,6 +13,8 @@ const { on } = require('events');
  */
 module.exports = defineConfig({
   testDir: './tests',
+  
+  
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -22,7 +24,7 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html'],['allure-playwright']],
   
   expect: {
     timeout:5000
@@ -40,6 +42,7 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      
     },
 
     {
@@ -51,6 +54,34 @@ module.exports = defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+     {
+      name: 'customchrome',
+      use: {
+        
+        ...devices['Desktop Chrome'],
+        viewport: {width:1440, height :900},
+        headless : false,
+        
+      },
+      timeout : 30*1000,
+    
+      expect : {
+        timeout:5000
+      }
+     },
+     {
+      name: 'iphone16',
+      use : {
+        browserName: 'webkit',
+        ...devices['iPhone 15'],
+        headless : false,
+        ignoreHTTPSErrors:true,
+        video:'on-first-retry',
+        
+      },
+      
+
+     },
 
     
     
