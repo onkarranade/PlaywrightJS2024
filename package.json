@@ -5,20 +5,21 @@
   "scripts": {
     "regression": "npx playwright test",
     "smoke": "npx playwright test --grep '@smoke'",
-    "title" : "npx playwright test --grep '@title'",
+    "title": "npx playwright test --grep '@title'",
+    "again": "npx playwright test --grep \"@again\" ",
     "generate-report": "allure generate allure-results --clean -o allure-report",
     "open-report": "allure open allure-report"
-    
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.49.1",
     "@types/node": "^22.8.7",
-    "allure-playwright": "^3.0.8",
-    "husky": "^9.1.6",
-    "playwright": "^1.49.1"
+    "allure-playwright": "^3.3.0",
+    "husky": "^9.1.7"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.53.2"
   }
 }
